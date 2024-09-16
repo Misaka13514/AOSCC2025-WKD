@@ -15,4 +15,4 @@ if __name__ == "__main__":
                 key_list.append(fingerprint)
     
     key_string = " ".join(key_list)
-    os.system(f"nix run github:cryolitia/pgp-sig2dot#pgp-sig2dot-graphviz -- -k {key_string} > wot.svg")
+    os.system(f"nix run github:cryolitia/nur-packages#pgp-sig2dot-graphviz --accept-flake-config -- -k {key_string} --online > wot.svg")

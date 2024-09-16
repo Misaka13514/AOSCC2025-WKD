@@ -6,21 +6,15 @@ on:
       - main
       - master
 
-permissions:
-  contents: write
-
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
-
-      - name: Setup cachix
-        uses: cachix/cachix-action@v15
-        with:
-          name: cryolitia
-          extraPullNames: nix-community
 
       - name: Checkout
         uses: actions/checkout@v4
