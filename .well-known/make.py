@@ -11,5 +11,6 @@ if __name__ == "__main__":
         print(data)
         for key, value in data.items():
             for fingerprint in value:
-                os.system(f"gpg --recv-keys {fingerprint}")
+                os.system(f"gpg --recv-keys --keyserver keyserver.ubuntu.com {fingerprint}")
+                os.system(f"gpg --recv-keys --keyserver keys.openpgp.org {fingerprint}")
                 os.system(f"gpg --list-options show-only-fpr-mbox -k {fingerprint} | gpg-wks-client -v --install-key")
