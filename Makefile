@@ -8,7 +8,7 @@ wot.svg: staffs.json
 	./wot.py ./staffs.json
 
 index.html: index.md wot.svg
-	nix run nixpkgs#pandoc -- -c style.css --embed-resources --standalone index.md -o index.html --to=html5 --metadata title="Web Key Directory of Project Trans" -V lang=en-US
+	nix run nixpkgs#pandoc -- -c style.css --standalone index.md -o index.html --to=html5 --metadata title="Web Key Directory of Project Trans" -V lang=en-US
 
 .PHONY: clean
 clean:
